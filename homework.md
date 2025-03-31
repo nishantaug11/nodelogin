@@ -9,3 +9,15 @@
 - D/F b/w  caret vs tilde (^ vs ~)
 - what are dependancy
 - What is the use of "-g" while npm install 
+
+- initialize git 
+- .gitignore
+- Create a git repo on github
+- Push all code on remote server
+- Play with routes and routes extension
+- Order of the routes matter a lot 
+- Install Postman 
+- Write logic to handel GET , POST, DELETE, PUT API call
+- Explore routing and use of ?, +,* ,() in routes
+- Use of Regex in routes /a/
+- Query paramas
