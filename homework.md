@@ -21,3 +21,24 @@
 - Explore routing and use of ?, +,* ,() in routes
 - Use of Regex in routes /a/
 - Query paramas
+
+- Create multiple routes handeler and play with code
+- app.use 
+- whats is middleware ? why do need it.
+- how express JS Basically handels request behind the scenes.
+- D/f b/w app.use and app.all
+- What are dummy auth middleware for all user routes, expect /user/login
+- Error Handeling using app.use ("/",(err,req,res,next)=>{})
+    - if pass only two parameter then behave live only req and res 
+    - if pass only three parameter then behave live only req and res and next(next call another handler)
+    - if you pass four parameter then behave live only err,req and res and next. This is beauty of express framework behaind the code.
+- Create a free cluster 
+- Install Mongoose Libarary
+- Connect your application to the database / devTinder
+- call the connectDB before starting your server application on 1234
+- Create Mongoose schema
+- Create Mongoose Model
+- Create Post  /signup Api to add data to database
+- Push some documents using API call from MongoBD
+- Error handeling with try and catch 
+
