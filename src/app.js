@@ -1,37 +1,36 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const connectDB = require('./config/database');
-const User = require('./models/user');
+
+const jwt = require('jsonwebtoken');
+
 const app = express();
 
-app.post("/signup",async (req,res)=>{
-    const userObj = {
-        firstName:"Yash",
-        lastName:"Singh",
-        emailId:"virat@gmail.com",
-        password:"123456"
-    }
-    // Createing a new instance of new User Model
-    const user = new User(userObj);
+app.use(express.json());
+app.use(cookieParser());
 
-    try{
-        await user.save();
-        res.send("User added Successfully");
-    }catch(err){
-        res.status(400).send("User Not Added", +err.message);
-    }
+const authRouter = require("./routes/auth");
+const profileRouter = require("./routes/profile");
+const requestRouter = require("./routes/request");
 
-   
-})
-
+app.use("/",authRouter);
+app.use("/",profileRouter);
+app.use("/",requestRouter);
 
 connectDB()
     .then(()=>{
         console.log("Data base connected");
-        app.listen(1234,()=>{
-            console.log("Server is sucessfully listening in port 1234");
+        const port = 1236;
+        app.listen(port, (err) => {
+            if (err) {
+                console.error(`Error: Port ${port} is already in use.`);
+                process.exit(1); // Exit the process with error code 
+            }
+            console.log(`Server running on port ${port}`);
         });
+       
     }).catch(err=>{
-        console.error("Data base not connected");
+    console.error("Data base not connected");
 })
 
 
